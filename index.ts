@@ -14,8 +14,8 @@ import {
 } from './ts-shows';
 
 const run = async () => {
-await createPlatform({name :'Netflix'});
-await createPlatform({name :'Hulu'});
+await createPlatform({name :'Netflix', price: 100, hasFreeTrial: true});
+await createPlatform({name :'Hulu', price:200, hasFreeTrial: false});
 const platforms = await getPlatforms();
 await createTvShows({name: '30 Rock', platformIds: [platforms[0]._id, platforms[1]._id]});
 await createTvShows({name :'The Office', platformIds:[platforms[0]._id, platforms[1]._id]});
@@ -32,3 +32,5 @@ console.log(`These are my characters ${characters}`);
 const tvShowsByName = await getShowsByName('30');
 console.log(tvShowsByName);
 };
+
+run();
